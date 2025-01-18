@@ -8,7 +8,6 @@ import {
 } from 'react-native';
 import React from 'react';
 import {COLORS, WIDTH, FONTSIZE} from './Themes';
-import Images from './Images';
 import ErrorBoundary from 'react-native-error-boundary';
 
 const CustomFallback = props => (

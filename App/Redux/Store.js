@@ -1,6 +1,5 @@
 import Auth from './Reducers/Auth';
 import Products from './Reducers/Products';
-
 import {configureStore} from '@reduxjs/toolkit';
 import {combineReducers} from 'redux';
 import {thunk} from 'redux-thunk';

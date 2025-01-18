@@ -7,6 +7,10 @@ import {
   PRODUCT_LIST_SUCCESS,
   PRODUCT_DETAILS,
   ADD_TO_CART,
+  ADD_QUANTITY,
+  DECREASE_QUANTITY,
+  REMOVE_FROM_CART,
+  CATEGORY_LIST,
 } from '../Actions/Types';
 
 const initialState = {
@@ -16,6 +20,8 @@ const initialState = {
   isError: false,
   isLoading: false,
   cartList: [],
+  orderList: [],
+  categoryList: [],
 };
 
 export default function Products(state = initialState, action) {
@@ -39,6 +45,13 @@ export default function Products(state = initialState, action) {
         message: null,
         isError: false,
       };
+
+    case CATEGORY_LIST:
+      return {
+        ...state,
+        categoryList: payload.categoryList,
+        isError: false,
+      };
     case PRODUCT_LIST_SUCCESS:
       return {
         ...state,
@@ -48,9 +61,35 @@ export default function Products(state = initialState, action) {
       };
 
     case ADD_TO_CART:
+      const productData = {...payload.product, quantity: 1};
       return {
         ...state,
-        cartList: payload.product,
+        cartList: [...state.cartList, productData],
+      };
+
+    case REMOVE_FROM_CART:
+      return {
+        ...state,
+        cartList: state.cartList.filter(item => item.id != payload.id),
+      };
+
+    case ADD_QUANTITY:
+      return {
+        ...state,
+        cartList: state.cartList.map((item, index) =>
+          item.id === payload.id
+            ? {...item, quantity: item.quantity + 1}
+            : item,
+        ),
+      };
+    case DECREASE_QUANTITY:
+      return {
+        ...state,
+        cartList: state.cartList.map((item, index) =>
+          item.id === payload.id
+            ? {...item, quantity: item.quantity - 1}
+            : item,
+        ),
       };
 
     case DATA_FAILED:

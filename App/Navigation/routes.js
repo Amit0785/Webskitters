@@ -3,4 +3,5 @@ export default Object.freeze({
   ProductList: 'ProductList',
   ProductDetails: 'ProductDetails',
   CartList: 'CartList',
+  OrderList: 'OrderList',
 });

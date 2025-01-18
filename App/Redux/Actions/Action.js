@@ -9,6 +9,12 @@ import {
   PRODUCT_LIST_SUCCESS,
   START_LOADING,
   STOP_LOADING,
+  ADD_TO_CART,
+  ADD_QUANTITY,
+  DECREASE_QUANTITY,
+  ORDER_LIST,
+  REMOVE_FROM_CART,
+  CATEGORY_LIST,
 } from './Types';
 
 // Action creator for message
@@ -37,6 +43,7 @@ export const handleFetchDataFailed = message => {
 
 // Action creator for login
 export const loginSuccess = data => {
+  console.log('======loginSuccess======>', data);
   return {
     type: LOGIN_SUCCESS,
     payload: {
@@ -68,6 +75,15 @@ export const productListSuccess = data => {
     type: PRODUCT_LIST_SUCCESS,
     payload: {
       productList: data.data,
+    },
+  };
+};
+
+export const categoryListSuccess = data => {
+  return {
+    type: CATEGORY_LIST,
+    payload: {
+      categoryList: data.data,
     },
   };
 };

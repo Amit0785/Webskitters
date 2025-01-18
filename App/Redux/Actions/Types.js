@@ -12,3 +12,11 @@ export const LOGOUT = 'LOGOUT';
 //Product
 export const PRODUCT_LIST_SUCCESS = 'PRODUCT_LIST_SUCCESS';
 export const PRODUCT_DETAILS = 'PRODUCT_DETAILS';
+
+export const ADD_TO_CART = 'ADD_TO_CART';
+export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
+export const ADD_QUANTITY = 'ADD_QUANTITY';
+export const DECREASE_QUANTITY = 'DECREASE_QUANTITY';
+export const ORDER_LIST = 'ORDER_LIST';
+
+export const CATEGORY_LIST = 'CATEGORY_LIST';
