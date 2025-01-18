@@ -15,6 +15,7 @@ const initialState = {
   message: null,
   isError: false,
   isLoading: false,
+  accessToken: null,
 };
 
 export default function Auth(state = initialState, action) {
@@ -28,6 +29,7 @@ export default function Auth(state = initialState, action) {
         user: payload.user,
         message: payload.message,
         isError: false,
+        accessToken: payload.user?.accessToken,
       };
     case LOGIN_FAIL:
       return {

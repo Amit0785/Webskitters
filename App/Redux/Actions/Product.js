@@ -7,18 +7,18 @@ import {
 } from './Action';
 import * as Apis from '../../Services/Apis';
 
-export const getProductList = () => dispatch => {
+export const getProductList = (page, limit) => dispatch => {
   dispatch(startLoading());
   dispatch(clearMessage());
   return Apis.fetchProductList(page, limit).then(
     data => {
       if (!data) return dispatch(stopLoading());
-      if (data?.success) {
+      if (data) {
         dispatch(stopLoading());
         dispatch(productListSuccess(data));
       } else {
         dispatch(stopLoading());
-        dispatch(handleFetchDataFailed(data.message));
+        dispatch(handleFetchDataFailed(data?.message));
       }
       return Promise.resolve();
     },

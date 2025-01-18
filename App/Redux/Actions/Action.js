@@ -47,7 +47,7 @@ export const loginSuccess = data => {
   return {
     type: LOGIN_SUCCESS,
     payload: {
-      user: data.data,
+      user: data,
       message: data.message,
     },
   };
@@ -74,7 +74,7 @@ export const productListSuccess = data => {
   return {
     type: PRODUCT_LIST_SUCCESS,
     payload: {
-      productList: data.data,
+      productList: data,
     },
   };
 };
@@ -84,6 +84,42 @@ export const categoryListSuccess = data => {
     type: CATEGORY_LIST,
     payload: {
       categoryList: data.data,
+    },
+  };
+};
+
+export const addToCart = product => {
+  return {
+    type: ADD_TO_CART,
+    payload: {
+      product: product,
+    },
+  };
+};
+
+export const removeFromCart = productId => {
+  return {
+    type: REMOVE_FROM_CART,
+    payload: {
+      id: productId,
+    },
+  };
+};
+
+export const addQuantity = productId => {
+  return {
+    type: ADD_QUANTITY,
+    payload: {
+      id: productId,
+    },
+  };
+};
+
+export const decreaseQuantity = productId => {
+  return {
+    type: DECREASE_QUANTITY,
+    payload: {
+      id: productId,
     },
   };
 };

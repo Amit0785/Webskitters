@@ -100,4 +100,4 @@ const ErrorMessage = ({text}) => {
   );
 };
 
-export {AppTextInput1, ErrorMessage};
+export {AppTextInput1, AppTextInput2, ErrorMessage};

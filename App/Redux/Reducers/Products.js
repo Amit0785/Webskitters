@@ -22,6 +22,8 @@ const initialState = {
   cartList: [],
   orderList: [],
   categoryList: [],
+  page: 1,
+  total: 1,
 };
 
 export default function Products(state = initialState, action) {
@@ -55,16 +57,34 @@ export default function Products(state = initialState, action) {
     case PRODUCT_LIST_SUCCESS:
       return {
         ...state,
-        productList: payload.productList,
+        productList: [...state.productList, ...payload.productList?.products],
+        page: state.page + 1,
+        total: payload.productList?.total,
         message: payload.message,
         isError: false,
       };
 
     case ADD_TO_CART:
-      const productData = {...payload.product, quantity: 1};
+      const existingProductIndex = state.cartList.findIndex(
+        item => item.id === payload.product.id,
+      );
+
+      let cartData;
+      if (existingProductIndex !== -1) {
+        // Update the quantity of the existing product
+        cartData = state.cartList.map((item, index) =>
+          index === existingProductIndex
+            ? {...item, quantity: item.quantity + 1}
+            : item,
+        );
+      } else {
+        // Add the new product to the cart
+        const productData = {...payload.product, quantity: 1};
+        cartData = [...state.cartList, productData];
+      }
       return {
         ...state,
-        cartList: [...state.cartList, productData],
+        cartList: cartData,
       };
 
     case REMOVE_FROM_CART:

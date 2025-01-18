@@ -1,3 +1,4 @@
+import axios from 'axios';
 import {BASE_URL} from './Keyword';
 import {getApiCall, postApiCall, commonGetApiCall} from './Network';
 import Toast from 'react-native-simple-toast';
@@ -5,12 +6,13 @@ import Toast from 'react-native-simple-toast';
 
 export const fetchLogin = values => {
   return axios
-    .post(BASE_URL + 'auth/login', JSON.stringify(values))
+    .post(BASE_URL + 'auth/login', values)
     .then(response => {
       return response.data;
     })
     .catch(error => {
-      Toast.show(`Login failed: ${error.message}`);
+      console.log('==========>err', error.response?.data);
+      Toast.show(`Login failed: ${error.response?.data?.message}`);
     });
 };
 

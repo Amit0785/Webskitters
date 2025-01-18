@@ -42,7 +42,7 @@ export default SafeView;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: COLORS.backgroundColor,
+    backgroundColor: COLORS.placeholderColor2,
     alignItems: 'center',
   },
   view: {
@@ -54,7 +54,6 @@ const styles = StyleSheet.create({
   textStyle1: {
     marginTop: 5,
     color: COLORS.white,
-    fontFamily: FONTS.Bold,
     fontWeight: 'bold',
     fontSize: FONTSIZE.MEDIUM,
     alignSelf: 'center',

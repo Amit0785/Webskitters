@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, Modal, Image, ActivityIndicator} from 'react-native';
 import {DotIndicator} from 'react-native-indicators';
 import Images from './Images';
-import {COLORS} from './Themes';
+import {COLORS, WIDTH} from './Themes';
 
 const Loader = ({visible}) => {
   return (
@@ -18,7 +18,7 @@ const Loader = ({visible}) => {
           style={{
             height: 70,
             backgroundColor: '#fff',
-            marginHorizontal: 50,
+            width: WIDTH * 0.5,
             borderRadius: 5,
             flexDirection: 'row',
             alignItems: 'center',

@@ -22,6 +22,7 @@
     "react": "18.2.0",
     "react-native": "0.71.8",
     "react-native-error-boundary": "1.2.3",
+    "react-native-gesture-handler": "^1.10.3",
     "react-native-indicators": "^0.17.0",
     "react-native-keyboard-avoiding-scroll-view": "^1.0.1",
     "react-native-permissions": "^3.8.4",
